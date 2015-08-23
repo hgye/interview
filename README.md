@@ -27,29 +27,30 @@ The candidates are expected to demonstrate a fast learning skill to master pytho
 
 Below is the data structure. Here the author only list the data to process and ignore the other columns.
 
-JSON
+***JSON***
 
 |total|issues|
 |---|---|
 |220|**list**|
 
-issues
+***issues***
 
 |fields|
 |---|
 |**list**|
 
-fields
+***fields***
 
 |description|project|
 |---|---|
-|<font color="blue">The text list to process<font>|**list**|
+|<font color="blue">The text list to process</font>|**list**|
 
 project: `['key']` is the project name as catalog title. 
+<font color="red">Project names in training-data are expected to be utilized to supervise the classifier but project names in test-data are only allowed to be used when checking results. </font>
 
 |key|
 |---|
-|<font color="blue">TONTC<font>|
+|<font color="blue">TONTC</font>|
 
 ### Notes
 * Candidates are expected to describe what happened to below operation on Linux or Cygwin(Linux environment simulator) to get a warm-up on this problem first.

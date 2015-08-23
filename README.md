@@ -29,21 +29,24 @@ Below is the data structure. Here the author only list the data to process and i
 
 JSON
 
-||total|issues|
+|total|issues|
 |---|---|
 |220|**list**|
 
 issues
+
 |fields|
 |---|
 |**list**|
 
 fields
+
 |description|project|
 |---|---|
 |<font color="blue">The text list to process<font>|**list**|
 
 project: `['key']` is the project name as catalog title. 
+
 |key|
 |---|
 |<font color="blue">TONTC<font>|

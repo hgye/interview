@@ -1,0 +1,4 @@
+# nltk data
+nltk_data/
+
+*.pyc

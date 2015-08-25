@@ -2,7 +2,7 @@
 
 # !/usr/bin/env python
 
-from collections import defaultdict
+# from collections import defaultdict
 import os
 import re
 import json
@@ -24,7 +24,8 @@ class trainDataSet(object):
         self.class_list = []
 
         # training set
-        self.trainSet = defaultdict(list)
+        # self.trainSet = defaultdict(list)
+        self.trainSet = []
         self.word_features = []
         self.trainData = []
 
@@ -48,7 +49,7 @@ class trainDataSet(object):
 
         # then we decide document feature
         self.trainData = [(self.document_features(d), c)
-                          for (c, d) in self.trainSet.items()]
+                          for (c, d) in self.trainSet]
 
     def openJsonFile(self):
         data = []
@@ -73,14 +74,16 @@ class trainDataSet(object):
 
         corpus += raw_words
 
-        # find proj in class_list
-        if proj in self.class_list:
-            pass
-        else:
-            self.class_list.append(proj)
+        self.trainSet.append((proj, raw_words))
 
-        for p in self.class_list:
-            self.trainSet[p] += raw_words
+        # find proj in class_list
+        # if proj in self.class_list:
+        #     pass
+        # else:
+        #     self.class_list.append(proj)
+
+        # for p in self.class_list:
+        #     self.trainSet[p] += raw_words
 
     def document_features(self, document):
         document_words = set(document)
@@ -169,7 +172,7 @@ class ProjectClassification(object):
         training.processData()
         self.word_features = training.getWordFeatures()
         self.trainData = [(self.document_features(d), c)
-                          for (c, d) in training.getRawTrainData().items()]
+                          for (c, d) in training.getRawTrainData()]
 
         # self.trainData = training.getTrainData()
 
@@ -190,7 +193,7 @@ class ProjectClassification(object):
         print "train number:", len(self.trainData)
         print "\n test number:", len(self.testData)
 
-        pdb.set_trace()
+        # pdb.set_trace()
         # use NaiveBayesClassifie
         classifier = nltk.NaiveBayesClassifier.train(self.trainData)
         test_error = nltk.classify.accuracy(classifier, self.testData)
